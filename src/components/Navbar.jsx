@@ -35,7 +35,7 @@ const Navbar = () => {
                          </li>
                     ))}
                </ul>
-               <a href="#" rel="noreferrer" target="_blank" className="text-5xl font-signature ml-2 cursor-pointer">
+               <a href="https://shafah.netlify.app/" rel="noreferrer" target="_blank" className="text-5xl font-signature ml-2 cursor-pointer">
                     shafah
                </a>
                {nav && (
