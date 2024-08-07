@@ -5,7 +5,7 @@ function Home() {
      return (
           <>
                <div name="home" className="relative flex justify-center items-center">
-                    <img src={hero} alt="hero look" className="w-full h-[500px]" />
+                    <img src={hero} alt="hero look" className="w-full h-[500px] md:h-full" />
                     <div className="absolute flex justify-center items-center">
                          <div className="flex flex-col text-center uppercase font-amiri">
                               <h1 className='font-bold text-3xl md:text-5xl text-white'>Logo Web</h1>
