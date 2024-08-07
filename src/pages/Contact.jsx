@@ -2,6 +2,7 @@ import React, { useRef, useState } from 'react';
 import emailjs from "@emailjs/browser";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';
+import Notiflix from 'notiflix';
 
 function Contact() {
      const bg = "https://e0.pxfuel.com/wallpapers/346/885/desktop-wallpaper-rainbow-fire-pics-splash.jpg";
@@ -34,17 +35,18 @@ function Contact() {
                     .then(
                          (result) => {
                               console.log(result.text);
-                              console.log("message sent");
+                              Notiflix.Notify.success('Message sent successfully!');
                               form.current.reset();
                               setLoading(false);
                          },
                          (error) => {
                               console.log(error.text);
+                              Notiflix.Notify.failure('Failed to send message. Please try again later.');
                               setLoading(false);
                          },
                     );
           } else {
-               console.log("Form is not valid");
+               Notiflix.Notify.warning('Please fill out all required fields.');
           }
      };
 
@@ -62,7 +64,7 @@ function Contact() {
                                    <input type="email" name="address" placeholder="Enter your email" className="my-4 p-2 bg-transparent border-2 rounded-md text-white focus:outline-none placeholder:text-white" required />
                                    <textarea name="message" rows="10" className="p-4 bg-transparent border-2 rounded-md text-white focus:outline-none placeholder:text-white" placeholder="Enter your message" required>
                                    </textarea>
-                                   <button type="submit" className="text-white font-semibold bg-gradient-to-b from-gray-500 to-teal-400 px-6 py-3 mt-10 mx-auto flex items-center rounded-md hover:scale-110 duration-300">
+                                   <button type="submit" className="text-white font-semibold bg-gradient-to-b from-gray-500 to-teal-400 px-6 py-3 mt-10 mx-auto flex items-center rounded-md hover:scale-110 duration-300 animate__animated animate__pulse animate__infinite">
                                         {loading ? <FontAwesomeIcon icon={faSpinner} spin /> : "Let's talk"}
                                    </button>
                               </form>
